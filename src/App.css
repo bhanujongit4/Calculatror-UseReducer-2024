@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  background: linear-gradient(to right, #FF6B00, #FFB400); /* Changed gradient colors */
+  font-family: Arial, sans-serif; /* Changed font */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.calculator-grid {
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); /* Responsive grid columns */
+  gap: 1rem; /* Added gap between grid items */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: none; /* Removed border */
+  outline: none;
+  background-color: #FFD166; /* Changed button background color */
+  color: #333; /* Changed button text color */
+  padding: 1.5rem 0; /* Increased padding for buttons */
+  border-radius: 5px; /* Added border radius */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+  background-color: #FFA500; /* Changed button background color on hover/focus */
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.output {
+  grid-column: 1 / -1;
+  background-color: rgba(0, 0, 0, .5); /* Changed output background color */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 1rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 5px; /* Added border radius */
 }
 
-.App-link {
-  color: #61dafb;
+.output .previous-operand {
+  color: #FFD166; /* Changed previous operand text color */
+  font-size: 1.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.output .current-operand {
+  color: #FFD166; /* Changed current operand text color */
+  font-size: 2.5rem;
 }
